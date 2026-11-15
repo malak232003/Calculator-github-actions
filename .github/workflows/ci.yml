@@ -1,0 +1,28 @@
+
+name: Pipeline CI
+
+# Déclenchement du workflow
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+# Définition des tâches
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Récupérer le code du dépôt
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # Afficher un message
+      - name: Message de bienvenue
+        run: echo "Bienvenue dans mon pipeline CI"
+
+      # Afficher les fichiers
+      - name: Lister les fichiers
+        run: ls -la
